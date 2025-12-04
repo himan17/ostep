@@ -17,3 +17,21 @@ int main(int argc, char *argv[]){
     
     return 0;
 }
+
+// Here in this program the output is:
+// This is the first program, (pid: 1234)
+// Child: (pid: 1235)
+// Parent of the child: (pid: 1234)
+
+
+/*
+Note: The output order of the parent and child is non-deterministic.
+The OS scheduler determines which process runs first, so the parent
+might print before the child or vice versa.
+
+But the thing to note here is:
+
+Child process is created in the same memory space and it is identical to the parent process, it's lifecycle starts beyond the fork() line
+
+So, that was the reason why this single code prints both parent and child
+*/
